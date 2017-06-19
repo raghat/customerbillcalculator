@@ -15,5 +15,5 @@ import com.customer.bill.model.MenuItem;
 public interface BillCalculatorService {
 	public BigDecimal getTotalBillExcludingServiceCharge(List<MenuItem> items);
 
-	public BigDecimal getTotalBillIncludingServiceCharge(List<MenuItem> items, BigDecimal totalPrice);
+	public BigDecimal getTotalBillIncludingServiceCharge(List<MenuItem> items);
 }

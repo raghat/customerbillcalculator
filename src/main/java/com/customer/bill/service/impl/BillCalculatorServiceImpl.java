@@ -6,6 +6,7 @@ package com.customer.bill.service.impl;
 import static org.apache.commons.lang3.Validate.notNull;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 import org.apache.commons.lang3.Validate;
@@ -44,7 +45,10 @@ public class BillCalculatorServiceImpl implements BillCalculatorService {
 	@Override
 	public BigDecimal getTotalBillExcludingServiceCharge(List<MenuItem> items) {
 		Validate.notEmpty(items, "Item collection cannot be null or empty");
-		return getTotalPrice(items);
+		BigDecimal totalBill = getTotalPrice(items);
+		// rounding off to 2 decimal places
+		totalBill.setScale(2, RoundingMode.HALF_EVEN);
+		return totalBill;
 	}
 
 	/*
@@ -58,7 +62,10 @@ public class BillCalculatorServiceImpl implements BillCalculatorService {
 		Validate.notEmpty(items, "Item collection cannot be null or empty");
 		BigDecimal totalPrice = getTotalPrice(items);
 		BigDecimal serviceCharge = serviceChargeService.getServiceCharge(items, totalPrice);
-		return totalPrice.add(serviceCharge);
+		BigDecimal totalBill = totalPrice.add(serviceCharge);
+		// rounding off to 2 decimal places
+		totalBill.setScale(2, RoundingMode.HALF_EVEN);
+		return totalBill;
 	}
 
 	/*

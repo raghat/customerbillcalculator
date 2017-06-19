@@ -6,6 +6,7 @@ package com.customer.bill.service.impl;
 import java.util.List;
 
 import org.apache.commons.lang3.Validate;
+import org.springframework.stereotype.Service;
 
 import com.customer.bill.model.ItemType;
 import com.customer.bill.model.MenuItem;
@@ -15,6 +16,7 @@ import com.customer.bill.service.MenuItemService;
  * @author raghav
  *
  */
+@Service
 public class MenuItemServiceImpl implements MenuItemService {
 
 	/*

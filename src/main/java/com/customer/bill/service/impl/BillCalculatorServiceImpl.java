@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import org.apache.commons.lang3.Validate;
+import org.springframework.stereotype.Service;
 
 import com.customer.bill.model.MenuItem;
 import com.customer.bill.service.BillCalculatorService;
@@ -15,6 +16,7 @@ import com.customer.bill.service.BillCalculatorService;
  * @author raghav
  *
  */
+@Service
 public class BillCalculatorServiceImpl implements BillCalculatorService {
 
 	/*

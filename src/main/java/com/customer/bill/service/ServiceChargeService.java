@@ -13,5 +13,7 @@ import com.customer.bill.model.MenuItem;
  *
  */
 public interface ServiceChargeService {
-	public BigDecimal getServiceCharge(List<MenuItem> items);
+	public static final BigDecimal MAX_SERVICE_CHARGE = new BigDecimal(20);
+
+	public BigDecimal getServiceCharge(List<MenuItem> items, BigDecimal totalPrice);
 }

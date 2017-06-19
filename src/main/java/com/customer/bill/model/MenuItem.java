@@ -3,6 +3,8 @@
  */
 package com.customer.bill.model;
 
+import org.apache.commons.lang3.Validate;
+
 /**
  * @author raghav
  *
@@ -18,8 +20,8 @@ public class MenuItem {
 	 */
 	public MenuItem(String itemName, ItemType itemType) {
 		super();
-		this.itemName = itemName;
-		this.itemType = itemType;
+		this.itemName = Validate.notBlank(itemName);
+		this.itemType = Validate.notNull(itemType);
 	}
 
 	/**
@@ -83,5 +85,4 @@ public class MenuItem {
 	public String toString() {
 		return "MenuItem [itemName=" + itemName + ", itemType=" + itemType + "]";
 	}
-
 }

@@ -5,6 +5,8 @@ package com.customer.bill.service.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang3.Validate;
+
 import com.customer.bill.model.ItemType;
 import com.customer.bill.model.MenuItem;
 import com.customer.bill.service.MenuItemService;
@@ -22,6 +24,7 @@ public class MenuItemServiceImpl implements MenuItemService {
 	 */
 	@Override
 	public boolean hasAllDrinks(List<MenuItem> items) {
+		Validate.notEmpty(items, "Item collection cannot be null or empty");
 		return items.stream().allMatch(item -> item.getItemType().equals(ItemType.DRINK));
 	}
 
@@ -33,6 +36,7 @@ public class MenuItemServiceImpl implements MenuItemService {
 	 */
 	@Override
 	public boolean hasAtleastOneFoodItem(List<MenuItem> items) {
+		Validate.notEmpty(items, "Item collection cannot be null or empty");
 		return items.stream().anyMatch(item -> item.getItemType().equals(ItemType.FOOD));
 	}
 
@@ -44,6 +48,7 @@ public class MenuItemServiceImpl implements MenuItemService {
 	 */
 	@Override
 	public boolean hasAtleastOneHotFoodItem(List<MenuItem> items) {
+		Validate.notEmpty(items, "Item collection cannot be null or empty");
 		return items.stream().anyMatch(item -> item.getItemType().equals(ItemType.HOTFOOD));
 	}
 }
